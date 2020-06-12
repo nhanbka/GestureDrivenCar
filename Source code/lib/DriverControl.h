@@ -102,19 +102,20 @@ void loop() {
     d = BTserial.read();
     Serial.println(d);
     if(d == GOING_FORWARD){
-      forward();
+      goingForward();
     }
     if(d == TURNING_RIGHT){
-      right();
+      turningRight();
     }
     if(d == GOING_BACKWARD){
-      backward();
+      goingBackward();
     }
      if(d == TURNING_LEFT){
-      left();
+      turningLeft();
     }
     if(d == STOP){
-      stop();
+      stopCar();
     }
   }
 }
+
