@@ -1,5 +1,6 @@
 #include <AFMotor.h>
-
+#define Forward BACKWARD
+#define Backward FORWARD
 
 AF_DCMotor motorRight(2, MOTOR12_64KHZ);   // create motor #2, 64KHz pwm  
 AF_DCMotor motorLeft(1, MOTOR12_64KHZ);  // create motor #1, 64KHz pwm
@@ -12,59 +13,29 @@ void motorSetup() {
 void goBackward() {
   // running because of current signal
   Serial.println("Go backward");     
-  motorLeft.run(FORWARD);     
-  motorRight.run(FORWARD);     
-    
-//  delay(1000);   
-  
-  // then stop to wait for another signal
-//  motorLeft.run(RELEASE);
-//  motorRight.run(RELEASE);
-
-//  delay(100);
+  motorLeft.run(Backward);     
+  motorRight.run(Backward);     
 }
 
 void turnLeft() {
   // running because of current signal
   Serial.println("Turning left");         
-  motorRight.run(BACKWARD);     
-  motorLeft.run(RELEASE);  
-//  delay(1000);  
-   
-  // then stop to wait for another signal
-//  motorLeft.run(RELEASE);
-//  motorRight.run(RELEASE);
-
-//  delay(100);
+  motorRight.run(Forward);     
+  motorLeft.run(Backward);  
 }
 
 void turnRight() {
   // running because of current signal
-  Serial.println("Turning right");       
-  motorRight.run(RELEASE);     
-  motorLeft.run(BACKWARD);    
-//  delay(1000); 
-
-  // then stop to wait for another signal
-//  motorLeft.run(RELEASE);
-//  motorRight.run(RELEASE);
-
-//  delay(100);
+  Serial.println("Turning right");   
+  motorRight.run(Backward);      
+  motorLeft.run(Forward);     
 }
 
 void goForward() {
   // running because of current signal
   Serial.println("Go forward");     
-  motorLeft.run(BACKWARD);     
-  motorRight.run(BACKWARD);      
-    
-//  delay(1000);    
-
-  // then stop to wait for another signal
-//  motorLeft.run(RELEASE);
-//  motorRight.run(RELEASE);
-
-//  delay(100);
+  motorLeft.run(Forward);     
+  motorRight.run(Forward);      
 }
 
 
@@ -73,11 +44,4 @@ void stopCar() {
  Serial.println("Stop");     
  motorLeft.run(RELEASE);     
  motorRight.run(RELEASE);     
-// delay(1000);    
-
-  // then stop to wait for another signal
-//  motorLeft.run(RELEASE);
-//  motorRight.run(RELEASE);
-
-//  delay(100);
 }
