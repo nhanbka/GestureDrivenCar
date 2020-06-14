@@ -19,3 +19,10 @@ Embedded System Project to control car with IMU 6050
 - Car main body
 - Battery
 - MPU 6050 accelerator module
+- 4DOF Arduino Robot Arm
+
+**Usage**
+-
+- Connect module with schematic shown in the Schematic folder
+- Load code from Nano_Remote to Arduino Nano, Uno to Arduino Uno
+- Enjoy with our code :)
