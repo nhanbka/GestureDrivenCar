@@ -5,7 +5,7 @@ Embedded System Project to control car with IMU 6050
 -
 - Lê Trọng Nhân - 20173292
 - Trần Phương Thảo - 20173383
-- Mạc Quang Huy
+- Mạc Quang Huy - 20173169
 
 **Hardware Requirement**
 -
