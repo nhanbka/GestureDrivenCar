@@ -13,76 +13,82 @@
 AF_DCMotor motorRight(2, MOTOR12_64KHZ);   // create motor #2, 64KHz pwm
 AF_DCMotor motorLeft(1, MOTOR12_64KHZ);  // create motor #1, 64KHz pwm
 
+int speedMode[3] = {50, 100, 3-00};
+
 void motorSetup() {
-  motorLeft.setSpeed(1000);
-  motorRight.setSpeed(1000);
+  motorLeft.setSpeed(100);
+  motorRight.setSpeed(100);
 }
 
-void goBackward(int mode) {
+void setMotorSpeed(int speed_mode) {
+  motorLeft.setSpeed(speedMode[speed_mode]);
+  motorRight.setSpeed(speedMode[speed_mode]);
+}
+
+void goBackward(int mode, int speed_mode) {
   if (mode == CAR) {
+    setMotorSpeed(speed_mode);
     Serial.println("Go backward");
     motorLeft.run(Backward);
     motorRight.run(Backward);
   } else {
     if (mode == JAW) {
       Serial.println("Release jaw");
-      jawRelease();
+      jawRelease(speed_mode + 1);
     }
-    
     if (mode == HEIGHT) {
       Serial.println("Increase height");
-      heightIncrease();
+      heightIncrease(speed_mode + 1);
     }
-    
     if (mode == RANGE) {
       Serial.println("Decrease range");
-      rangeDecrease();
+      rangeDecrease(speed_mode + 1);
     }
   }
 }
 
-void turnLeft(int mode) {
+void turnLeft(int mode, int speed_mode) {
   if (mode == CAR) {
+    setMotorSpeed(speed_mode);
     Serial.println("Turning left");
     motorRight.run(Forward);
     motorLeft.run(Backward);
   } else {
     Serial.println("Rotate left");
-    rotateLeft();
+    rotateLeft(speed_mode + 1);
   }
 }
 
-void turnRight(int mode) {
+void turnRight(int mode, int speed_mode) {
   if (mode == CAR) {
-    // running because of current signal
+    setMotorSpeed(speed_mode);
     Serial.println("Turning right");
     motorRight.run(Backward);
     motorLeft.run(Forward);
   } else {
     Serial.println("Rotate right");
-    rotateRight();
+    rotateRight(speed_mode + 1);
   }
 }
 
-void goForward(int mode) {
+void goForward(int mode, int speed_mode) {
   if (mode == CAR) {
+    setMotorSpeed(speed_mode);
     Serial.println("Go forward");
     motorLeft.run(Forward);
     motorRight.run(Forward);
   } else {
     if (mode == JAW) {
       Serial.println("Bind jaw");
-      jawBind();
+      jawBind(speed_mode + 1);
     }
-
     if (mode == HEIGHT) {
       Serial.println("Decrease height");
-      heightDecrease();
+      heightDecrease(speed_mode + 1);
     }
-
     if (mode == RANGE) {
       Serial.println("Increase range");
-      rangeIncrease();
+      rangeIncrease(speed_mode + 1);
     }
   }
 }

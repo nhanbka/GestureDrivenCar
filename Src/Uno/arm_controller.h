@@ -77,82 +77,82 @@ void initState() {
 //||---------------------------------------||
 
 
-void rangeDecrease() {
+void rangeDecrease(int speed_mode) {
   if (range_pos == MIN_RANGE_SERVO) {
     rangeServo.write(range_pos);
     return;
   } else {
-    range_pos--;
+    range_pos-=speed_mode;
     rangeServo.write(range_pos);
   }
 }
 
-void rangeIncrease() {
+void rangeIncrease(int speed_mode) {
   if (range_pos == MAX_RANGE_SERVO) {
     rangeServo.write(range_pos);
     return;
   } else {
-    range_pos++;
+    range_pos+=speed_mode;
     rangeServo.write(range_pos);
   }
 }
 
-void heightIncrease() {
+void heightIncrease(int speed_mode) {
   if (height_pos == MAX_HEIGHT_SERVO) {
     heightServo.write(height_pos);
     return;
   } else {
-    height_pos++;
+    height_pos+=speed_mode;
     heightServo.write(height_pos);
   }
 }
 
-void heightDecrease() {
+void heightDecrease(int speed_mode) {
   if (height_pos == MIN_HEIGHT_SERVO) {
     heightServo.write(height_pos);
     return;
   } else {
-    height_pos--;
+    height_pos-=speed_mode;
     heightServo.write(height_pos);
   }
 }
 
-void rotateRight() {
+void rotateRight(int speed_mode) {
   if (rotate_pos == MIN_ROTATE_SERVO) {
     rotateServo.write(rotate_pos);
     return;
   } else {
-    rotate_pos--;
+    rotate_pos-=speed_mode;
     rotateServo.write(rotate_pos);
   }
 }
 
-void rotateLeft() {
+void rotateLeft(int speed_mode) {
   if (rotate_pos == MAX_ROTATE_SERVO) {
     rotateServo.write(rotate_pos);
     return;
   } else {
-    rotate_pos++;
+    rotate_pos+=speed_mode;
     rotateServo.write(rotate_pos);
   }
 }
 
-void jawBind() {
+void jawBind(int speed_mode) {
   if (jaw_pos == MIN_JAW_SERVO) {
     jawServo.write(jaw_pos);
     return;
   } else {
-    jaw_pos--;
+    jaw_pos-=speed_mode;
     jawServo.write(jaw_pos);
   }
 }
 
-void jawRelease() {
+void jawRelease(int speed_mode) {
   if (jaw_pos == MAX_JAW_SERVO) {
     jawServo.write(jaw_pos);
     return;
   } else {
-    jaw_pos++;
+    jaw_pos+=speed_mode;
     jawServo.write(jaw_pos);
   }
 }
