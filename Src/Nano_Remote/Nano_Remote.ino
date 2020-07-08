@@ -47,9 +47,11 @@ SoftwareSerial BTSerial(11, 12); // RX | TX
 
 char modeArr[] = {'0', '1', '2', '3'};
 int x = 1;
-const byte ledPin = 10;
+const byte ledPin1 = 10;
+const byte ledPin2 = 6;
 const byte interruptPin = 3;
-volatile byte state = HIGH;
+volatile byte state1 = HIGH;
+volatile byte state2 = HIGH;
 int mode = 0;
 //char controlCar = 'c';
 //char controlArm = 'a';
@@ -60,9 +62,34 @@ void handleInterrupt() {
   unsigned long long interrupt_time = millis();
 
   if (interrupt_time - last_interrupt_time > 200) {
-    state = !state;
     mode++;
     if (mode == 4) mode = 0;
+    switch(mode){
+      case 0:
+      {
+        state1=LOW;
+        state2=LOW;
+        break;
+      }
+       case 1:
+      {
+        state1=LOW;
+        state2=HIGH;
+        break;
+      }
+       case 2:
+      {
+        state1=HIGH;
+        state2=LOW;
+        break;
+      }
+       case 3:
+      {
+        state1=HIGH;
+        state2=HIGH;
+        break;
+      }      
+    }
     for (int i = 0; i < 20; i++) {
       Serial.println(modeArr[mode]);
       BTSerial.write(modeArr[mode]);
@@ -75,7 +102,8 @@ void handleInterrupt() {
 void setup() {
   Serial.begin(115200);
   BTSerial.begin(38400);
-  pinMode(ledPin, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
   pinMode(interruptPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(interruptPin), handleInterrupt, LOW);
 
@@ -158,8 +186,8 @@ void setup() {
 
 void loop() {
 
-  digitalWrite(ledPin, state);
-
+  digitalWrite(ledPin1, state1);
+  digitalWrite(ledPin2, state2);
   // if programming failed, don't try to do anything
   if (!dmpReady) return;
 
