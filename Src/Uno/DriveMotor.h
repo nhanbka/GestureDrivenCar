@@ -13,7 +13,7 @@
 AF_DCMotor motorRight(2, MOTOR12_64KHZ);   // create motor #2, 64KHz pwm
 AF_DCMotor motorLeft(1, MOTOR12_64KHZ);  // create motor #1, 64KHz pwm
 
-int speedMode[3] = {50, 100, 3-00};
+int speedMode[3] = {50, 100, 300};
 
 void motorSetup() {
   motorLeft.setSpeed(100);
@@ -21,8 +21,9 @@ void motorSetup() {
 }
 
 void setMotorSpeed(int speed_mode) {
-  motorLeft.setSpeed(speedMode[speed_mode]);
   motorRight.setSpeed(speedMode[speed_mode]);
+  motorLeft.setSpeed(speedMode[speed_mode]);
+  
 }
 
 void goBackward(int mode, int speed_mode) {

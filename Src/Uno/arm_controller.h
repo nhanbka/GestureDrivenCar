@@ -82,8 +82,11 @@ void rangeDecrease(int speed_mode) {
     rangeServo.write(range_pos);
     return;
   } else {
-    range_pos-=speed_mode;
-    rangeServo.write(range_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      range_pos--;
+      rangeServo.write(range_pos);
+    }
   }
 }
 
@@ -92,8 +95,11 @@ void rangeIncrease(int speed_mode) {
     rangeServo.write(range_pos);
     return;
   } else {
-    range_pos+=speed_mode;
-    rangeServo.write(range_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      range_pos++;
+      rangeServo.write(range_pos);
+    }
   }
 }
 
@@ -102,8 +108,11 @@ void heightIncrease(int speed_mode) {
     heightServo.write(height_pos);
     return;
   } else {
-    height_pos+=speed_mode;
-    heightServo.write(height_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      height_pos++;
+      heightServo.write(height_pos);
+    }
   }
 }
 
@@ -112,8 +121,11 @@ void heightDecrease(int speed_mode) {
     heightServo.write(height_pos);
     return;
   } else {
-    height_pos-=speed_mode;
-    heightServo.write(height_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      height_pos--;
+      heightServo.write(height_pos);
+    }
   }
 }
 
@@ -122,8 +134,11 @@ void rotateRight(int speed_mode) {
     rotateServo.write(rotate_pos);
     return;
   } else {
-    rotate_pos-=speed_mode;
-    rotateServo.write(rotate_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      rotate_pos--;
+      rotateServo.write(rotate_pos);
+    }  
   }
 }
 
@@ -132,8 +147,11 @@ void rotateLeft(int speed_mode) {
     rotateServo.write(rotate_pos);
     return;
   } else {
-    rotate_pos+=speed_mode;
-    rotateServo.write(rotate_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      rotate_pos++;
+      rotateServo.write(rotate_pos);
+    } 
   }
 }
 
@@ -142,8 +160,11 @@ void jawBind(int speed_mode) {
     jawServo.write(jaw_pos);
     return;
   } else {
-    jaw_pos-=speed_mode;
-    jawServo.write(jaw_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      jaw_pos--;
+      jawServo.write(jaw_pos);
+    }
   }
 }
 
@@ -152,7 +173,10 @@ void jawRelease(int speed_mode) {
     jawServo.write(jaw_pos);
     return;
   } else {
-    jaw_pos+=speed_mode;
-    jawServo.write(jaw_pos);
+    int i;
+    for(i = 0; i < speed_mode; i++){
+      jaw_pos++;
+      jawServo.write(jaw_pos);
+    } 
   }
 }
