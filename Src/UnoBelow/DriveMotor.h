@@ -12,7 +12,7 @@
 AF_DCMotor motorRight(2, MOTOR12_64KHZ);   // create motor #2, 64KHz pwm
 AF_DCMotor motorLeft(1, MOTOR12_64KHZ);  // create motor #1, 64KHz pwm
 
-int speedMode[3] = {127, 200, 255};
+int speedMode[3] = {150, 200, 255};
 
 void motorSetup() {
   motorLeft.setSpeed(speedMode[0]);
