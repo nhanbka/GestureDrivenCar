@@ -26,7 +26,6 @@ int mode = 0;
 
 void setup() {
   Serial.begin(38400);
-  initState();  
   Serial.println("Arduino is ready");
   // HC-05 default serial speed for AT mode is 38400
   BTserial.begin(38400);

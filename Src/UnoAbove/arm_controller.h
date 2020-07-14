@@ -50,8 +50,8 @@ Servo rotateServo;
 
 // variable to store the servo position
 int jaw_pos = 100;
-int height_pos = 180;
-int range_pos = 80;
+int height_pos = 120;
+int range_pos = 40;
 int rotate_pos = 90;
 
 
@@ -78,8 +78,8 @@ void initState() {
 
 
 void rangeDecrease(int speed_mode) {
-  if (range_pos == MIN_RANGE_SERVO) {
-    rangeServo.write(range_pos);
+  if (range_pos <= MIN_RANGE_SERVO) {
+    rangeServo.write(MIN_RANGE_SERVO);
     return;
   } else {
     int i;
@@ -91,8 +91,8 @@ void rangeDecrease(int speed_mode) {
 }
 
 void rangeIncrease(int speed_mode) {
-  if (range_pos == MAX_RANGE_SERVO) {
-    rangeServo.write(range_pos);
+  if (range_pos >= MAX_RANGE_SERVO) {
+    rangeServo.write(MAX_RANGE_SERVO);
     return;
   } else {
     int i;
@@ -104,8 +104,8 @@ void rangeIncrease(int speed_mode) {
 }
 
 void heightIncrease(int speed_mode) {
-  if (height_pos == MAX_HEIGHT_SERVO) {
-    heightServo.write(height_pos);
+  if (height_pos >= MAX_HEIGHT_SERVO) {
+    heightServo.write(MAX_HEIGHT_SERVO);
     return;
   } else {
     int i;
@@ -117,8 +117,8 @@ void heightIncrease(int speed_mode) {
 }
 
 void heightDecrease(int speed_mode) {
-  if (height_pos == MIN_HEIGHT_SERVO) {
-    heightServo.write(height_pos);
+  if (height_pos <= MIN_HEIGHT_SERVO) {
+    heightServo.write(MIN_HEIGHT_SERVO);
     return;
   } else {
     int i;
@@ -130,8 +130,8 @@ void heightDecrease(int speed_mode) {
 }
 
 void rotateRight(int speed_mode) {
-  if (rotate_pos == MIN_ROTATE_SERVO) {
-    rotateServo.write(rotate_pos);
+  if (rotate_pos <= MIN_ROTATE_SERVO) {
+    rotateServo.write(MIN_ROTATE_SERVO);
     return;
   } else {
     int i;
@@ -143,8 +143,8 @@ void rotateRight(int speed_mode) {
 }
 
 void rotateLeft(int speed_mode) {
-  if (rotate_pos == MAX_ROTATE_SERVO) {
-    rotateServo.write(rotate_pos);
+  if (rotate_pos >= MAX_ROTATE_SERVO) {
+    rotateServo.write(MAX_ROTATE_SERVO);
     return;
   } else {
     int i;
@@ -156,8 +156,8 @@ void rotateLeft(int speed_mode) {
 }
 
 void jawBind(int speed_mode) {
-  if (jaw_pos == MIN_JAW_SERVO) {
-    jawServo.write(jaw_pos);
+  if (jaw_pos <= MIN_JAW_SERVO) {
+    jawServo.write(MIN_JAW_SERVO);
     return;
   } else {
     int i;
@@ -169,8 +169,8 @@ void jawBind(int speed_mode) {
 }
 
 void jawRelease(int speed_mode) {
-  if (jaw_pos == MAX_JAW_SERVO) {
-    jawServo.write(jaw_pos);
+  if (jaw_pos >= MAX_JAW_SERVO) {
+    jawServo.write(MAX_JAW_SERVO);
     return;
   } else {
     int i;
